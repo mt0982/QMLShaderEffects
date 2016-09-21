@@ -8,5 +8,7 @@
     <qresource prefix="/s">
         <file>shaders/brightness.frag</file>
         <file>shaders/brightness.vert</file>
+        <file>shaders/grayscale.frag</file>
+        <file>shaders/grayscale.vert</file>
     </qresource>
 </RCC>
