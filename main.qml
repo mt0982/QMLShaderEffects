@@ -48,8 +48,8 @@ Window {
                 property variant src: img
                 property variant value: slider.value
 
-                vertexShader: openFile("qrc:/s/shaders/grayscale.vert")
-                fragmentShader: openFile("qrc:/s/shaders/grayscale.frag")
+                vertexShader: openFile("qrc:/s/shaders/blur.vert")
+                fragmentShader: openFile("qrc:/s/shaders/blur.frag")
             }
         }
 //    }

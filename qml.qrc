@@ -10,5 +10,7 @@
         <file>shaders/brightness.vert</file>
         <file>shaders/grayscale.frag</file>
         <file>shaders/grayscale.vert</file>
+        <file>shaders/blur.frag</file>
+        <file>shaders/blur.vert</file>
     </qresource>
 </RCC>
