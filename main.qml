@@ -54,6 +54,24 @@ Window {
             }
         }
 //    }
+
+    Rectangle {
+        id: divider
+        width: 5
+        height: parent.height
+        x: parent.width / 2
+        z: 3
+        color: "#53ACC9"
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                drag.target = parent
+                drag.axis = Drag.XAxis
+                console.log("a");
+            }
+        }
+    }
 }
 
 
