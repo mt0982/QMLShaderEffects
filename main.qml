@@ -39,17 +39,18 @@ Window {
 
         Image {
             id: img
-            source: "qrc:/i/beautiful_forest_2-wallpaper-1920x1080.jpg"
-            fillMode: Image.PreserveAspectFit
-            anchors.centerIn: parent
+            source: "qrc:/i/lena.jpg"
+            //fillMode: Image.PreserveAspectFit
+            //width: parent.width
+            //anchors.fill: parent
 
             ShaderEffect {
                 anchors.fill: parent
                 property variant src: img
                 property variant value: slider.value
 
-                vertexShader: openFile("qrc:/s/shaders/blur.vert")
-                fragmentShader: openFile("qrc:/s/shaders/blur.frag")
+                vertexShader: openFile("qrc:/s/shaders/edge.vert")
+                fragmentShader: openFile("qrc:/s/shaders/edge.frag")
             }
         }
 //    }

@@ -4,6 +4,7 @@
     </qresource>
     <qresource prefix="/i">
         <file>beautiful_forest_2-wallpaper-1920x1080.jpg</file>
+        <file>lena.jpg</file>
     </qresource>
     <qresource prefix="/s">
         <file>shaders/brightness.frag</file>
@@ -12,5 +13,7 @@
         <file>shaders/grayscale.vert</file>
         <file>shaders/blur.frag</file>
         <file>shaders/blur.vert</file>
+        <file>shaders/edge.frag</file>
+        <file>shaders/edge.vert</file>
     </qresource>
 </RCC>
