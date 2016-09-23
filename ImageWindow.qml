@@ -4,12 +4,25 @@ import QtQuick.Dialogs 1.2
 
 Item {
     id: myItem
+    property url pathToFile;
+    property size imgSize: img.sourceSize
+    property int imageWidth: img.sourceSize.width
+    property int imageHeight: img.sourceSize.height
 
     function openFile(fileUrl) {
         var request = new XMLHttpRequest();
         request.open("GET", fileUrl, false);
         request.send(null);
         return request.responseText;
+    }
+
+    Label {
+        id: background
+        text: "Choose a file"
+        font.pixelSize: 96
+        anchors.fill: parent
+        verticalAlignment: Label.AlignVCenter
+        horizontalAlignment: Label.AlignHCenter
     }
 
     Slider {
@@ -28,27 +41,21 @@ Item {
         }
     }
 
-//    Flickable {
-//        anchors.fill: parent
-//        contentWidth: img.width;
-//        contentHeight: img.height
+    Image {
+        id: img
+        source: pathToFile
+        fillMode: Image.PreserveAspectFit
+        width: parent.width
 
-        Image {
-            id: img
-            source: "qrc:/i/beautiful_forest_2-wallpaper-1920x1080.jpg"
-            fillMode: Image.PreserveAspectFit
-            width: parent.width
+        ShaderEffect {
+            anchors.fill: parent
+            property variant src: img
+            property variant value: slider.value
 
-            ShaderEffect {
-                anchors.fill: parent
-                property variant src: img
-                property variant value: slider.value
-
-                vertexShader: openFile("qrc:/s/shaders/edge.vert")
-                fragmentShader: openFile("qrc:/s/shaders/edge.frag")
-            }
+            vertexShader: openFile("qrc:/s/shaders/edge.vert")
+            fragmentShader: openFile("qrc:/s/shaders/edge.frag")
         }
-//    }
+    }
 
     Rectangle {
         id: divider
@@ -83,7 +90,7 @@ Item {
 
         Image {
             id: img2
-            source: "qrc:/i/beautiful_forest_2-wallpaper-1920x1080.jpg"
+            source: pathToFile
             x: 0
             y: 0
             width: img.width
