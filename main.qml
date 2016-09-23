@@ -60,16 +60,37 @@ Window {
         width: 5
         height: parent.height
         x: parent.width / 2
-        z: 3
+        z: 4
         color: "#53ACC9"
+        Drag.active: dragArea.drag.active
 
         MouseArea {
+            id: dragArea
             anchors.fill: parent
-            onClicked: {
-                drag.target = parent
-                drag.axis = Drag.XAxis
-                console.log("a");
+            drag.target: parent
+            drag.axis: Drag.XAxis
+
+            onPositionChanged:  {
+                if(divider.x > 0 && divider.x < Window.width) {
+                    console.log(divider.x)
+                }
             }
+        }
+    }
+
+    Rectangle {
+        id: mask
+        width: divider.x
+        height: parent.height
+        x: 0
+        y: 0
+        clip: true
+
+        Image {
+            id: img2
+            source: "qrc:/i/lena.jpg"
+            x: 0
+            y: 0
         }
     }
 }
