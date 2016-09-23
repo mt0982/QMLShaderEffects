@@ -1,10 +1,11 @@
-varying highp vec2 coord;
 uniform sampler2D src;
-uniform lowp float qt_Opacity;
 uniform float value;
+
+/* In */
+varying vec2 UV;
 
 void main()
 {
-    lowp vec4 tex = texture2D(src, coord);
-    gl_FragColor = tex + vec4(vec3(value), 1.0);
+    vec4 color = texture2D(src, UV);
+    gl_FragColor = color + vec4(vec3(value), 1.0);
 }

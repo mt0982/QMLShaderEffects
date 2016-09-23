@@ -61,27 +61,27 @@ Item {
             horizontalAlignment: Label.AlignHCenter
         }
 
-        Rectangle {
-            id: icon
-            width: 32
-            height: 32
-            x: parent.width - 32
-            y: parent.height / 2
+//        Rectangle {
+//            id: icon
+//            width: 32
+//            height: 32
+//            x: parent.width - 32
+//            y: parent.height / 2
 
-            Image {
-                id: imgIcon
-                source: "qrc:/i/icons/left.png"
-                anchors.fill: parent
+//            Image {
+//                id: imgIcon
+//                source: "qrc:/i/icons/left.png"
+//                anchors.fill: parent
 
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        console.log(qsTr("Hide Menu Button Clicked"))
-                        drawer.close()
-                    }
-                }
-            }
-        }
+//                MouseArea {
+//                    anchors.fill: parent
+//                    onClicked: {
+//                        console.log(qsTr("Hide Menu Button Clicked"))
+//                        drawer.close()
+//                    }
+//                }
+//            }
+//        }
 
         Button {
             id: btnOpenFile
@@ -102,7 +102,9 @@ Item {
             width: parent.width
             y: btnOpenFile.y + 64
             x: 0
+            spacing: 1
 
+            /* Grayscale */
             Button {
                 id: btnShaderGrayscale
                 width: columnGrid.width
@@ -112,6 +114,45 @@ Item {
                 onClicked: {
                     console.log(qsTr("Button Shader Grayscale Pressed"))
                     myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/grayscale.frag")
+                }
+            }
+
+            /* Brightness */
+            Button {
+                id: btnShaderBrightness
+                width: columnGrid.width
+                height: 48
+                text: qsTr("Shader - Brightness")
+
+                onClicked: {
+                    console.log(qsTr("Button Shader Brightness Pressed"))
+                    myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/brightness.frag")
+                }
+            }
+
+            /* Blur */
+            Button {
+                id: btnShaderBlur
+                width: columnGrid.width
+                height: 48
+                text: qsTr("Shader - Blur")
+
+                onClicked: {
+                    console.log(qsTr("Button Shader Blur Pressed"))
+                    myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/blur.frag")
+                }
+            }
+
+            /* Edge */
+            Button {
+                id: btnShaderEdge
+                width: columnGrid.width
+                height: 48
+                text: qsTr("Shader - Edge")
+
+                onClicked: {
+                    console.log(qsTr("Button Shader Edge Pressed"))
+                    myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/edge.frag")
                 }
             }
         }
