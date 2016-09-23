@@ -18,5 +18,6 @@
         <file>shaders/zshader.vert</file>
         <file>shaders/dilation.frag</file>
         <file>shaders/blueisolate.frag</file>
+        <file>shaders/sobel.frag</file>
     </qresource>
 </RCC>

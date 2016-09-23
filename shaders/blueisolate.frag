@@ -4,6 +4,8 @@ uniform float value;
 /* In */
 varying vec2 UV;
 
+// Source: http://kodemongki.blogspot.com/2011/06/kameraku-custom-shader-effects-example.html
+
 void rgb2hsl(vec3 rgb, out float h, out float s, float l)
 {
     float maxval = max(rgb.r , max(rgb.g, rgb.b));
@@ -15,6 +17,7 @@ void rgb2hsl(vec3 rgb, out float h, out float s, float l)
     if (l > 0.0 && l < 1.0)
         s = delta / (l < 0.5 ? 2.0 * l : 2.0 - 2.0 * l);
     h = 0.0;
+
     if (delta > 0.0)
     {
         if (rgb.r == maxval && rgb.g != maxval)
@@ -29,22 +32,22 @@ void rgb2hsl(vec3 rgb, out float h, out float s, float l)
 
 void main()
 {
-        vec4 color = texture2D(src, UV);
-        float h, s, l;
+    vec4 color = texture2D(src, UV);
+    float h, s, l;
 
-        rgb2hsl(color, h, s, l);
+    rgb2hsl(color, h, s, l);
 
-        float y = 0.3 * color.r + 0.59 * color.g + 0.11 * color.b;
+    float y = 0.3 * color.r + 0.59 * color.g + 0.11 * color.b;
 
-        vec4 result;
-        if (h >= 180.0 && h <= 260.0) {
-            result = color;
-        } else{
-            result = vec4(y, y, y, 1.0);
-        }
+    vec4 result;
+    if (h >= 180.0 && h <= 260.0) {
+        result = color;
+    } else{
+        result = vec4(y, y, y, 1.0);
+    }
 
-        gl_FragColor.a = 1.0;
-        gl_FragColor.rgb = result;
+    gl_FragColor.a = 1.0;
+    gl_FragColor.rgb = result;
 }
 
 

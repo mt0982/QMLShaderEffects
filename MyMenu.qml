@@ -181,6 +181,19 @@ Item {
                     myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/blueisolate.frag")
                 }
             }
+
+            /* Sobel */
+            Button {
+                id: btnShaderSobel
+                width: columnGrid.width
+                height: 48
+                text: qsTr("Shader - Sobel")
+
+                onClicked: {
+                    console.log(qsTr("Button Shader Sobel Pressed"))
+                    myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/sobel.frag")
+                }
+            }
         }
     }
 }
