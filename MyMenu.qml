@@ -155,6 +155,32 @@ Item {
                     myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/edge.frag")
                 }
             }
+
+            /* Dilation */
+            Button {
+                id: btnShaderDilation
+                width: columnGrid.width
+                height: 48
+                text: qsTr("Shader - Dilation")
+
+                onClicked: {
+                    console.log(qsTr("Button Shader Dilation Pressed"))
+                    myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/dilation.frag")
+                }
+            }
+
+            /* Blue Isolate */
+            Button {
+                id: btnShaderBlueIsolate
+                width: columnGrid.width
+                height: 48
+                text: qsTr("Shader - Blue Isolate")
+
+                onClicked: {
+                    console.log(qsTr("Button Shader Blue Isolate Pressed"))
+                    myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/blueisolate.frag")
+                }
+            }
         }
     }
 }

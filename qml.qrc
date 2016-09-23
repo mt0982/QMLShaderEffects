@@ -16,5 +16,7 @@
         <file>shaders/blur.frag</file>
         <file>shaders/edge.frag</file>
         <file>shaders/zshader.vert</file>
+        <file>shaders/dilation.frag</file>
+        <file>shaders/blueisolate.frag</file>
     </qresource>
 </RCC>
