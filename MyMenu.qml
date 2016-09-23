@@ -1,4 +1,5 @@
-import QtQuick 2.0
+import QtQuick.Window 2.2
+import QtQuick 2.5
 import QtQuick.Controls 1.4
 import QtQuick.Controls 2.0
 import QtQuick.Dialogs 1.2
@@ -30,8 +31,6 @@ Item {
         id: fileDialog
         title: "Choose file"
         nameFilters: [ "Image files (*.jpg *.png)", "All files (*)" ]
-        width: Screen.width * 0.6
-        height: Screen.height * 0.4
 
         onAccepted: {
             console.log("Accepted: " + fileDialog.fileUrls)
@@ -84,8 +83,39 @@ Item {
             y: 48
 
             onClicked: {
+                fileDialog.width = Screen.width * 0.6
+                fileDialog.height =  Screen.height * 0.6
                 fileDialog.open()
+            }
+        }
+
+        Column {
+            id: columnGrid
+
+            Button {
+                id: btnShaderGrayscale
+                anchors.fill: parent
             }
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
