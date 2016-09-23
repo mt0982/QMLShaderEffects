@@ -194,6 +194,19 @@ Item {
                     myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/sobel.frag")
                 }
             }
+
+            /* Billboard */
+            Button {
+                id: btnShaderBillboard
+                width: columnGrid.width
+                height: 48
+                text: qsTr("Shader - Billboard")
+
+                onClicked: {
+                    console.log(qsTr("Button Shader Billboard Pressed"))
+                    myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/billboard.frag")
+                }
+            }
         }
     }
 }

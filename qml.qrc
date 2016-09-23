@@ -19,5 +19,6 @@
         <file>shaders/dilation.frag</file>
         <file>shaders/blueisolate.frag</file>
         <file>shaders/sobel.frag</file>
+        <file>shaders/billboard.frag</file>
     </qresource>
 </RCC>
