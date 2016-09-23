@@ -12,12 +12,9 @@
     </qresource>
     <qresource prefix="/s">
         <file>shaders/brightness.frag</file>
-        <file>shaders/brightness.vert</file>
         <file>shaders/grayscale.frag</file>
-        <file>shaders/grayscale.vert</file>
         <file>shaders/blur.frag</file>
-        <file>shaders/blur.vert</file>
         <file>shaders/edge.frag</file>
-        <file>shaders/edge.vert</file>
+        <file>shaders/zshader.vert</file>
     </qresource>
 </RCC>

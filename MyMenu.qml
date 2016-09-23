@@ -5,6 +5,14 @@ import QtQuick.Controls 2.0
 import QtQuick.Dialogs 1.2
 
 Item {
+
+    function openFile(fileUrl) {
+        var request = new XMLHttpRequest();
+        request.open("GET", fileUrl, false);
+        request.send(null);
+        return request.responseText;
+    }
+
     Rectangle {
         id: menuIcon
         width: 32
@@ -91,10 +99,20 @@ Item {
 
         Column {
             id: columnGrid
+            width: parent.width
+            y: btnOpenFile.y + 64
+            x: 0
 
             Button {
                 id: btnShaderGrayscale
-                anchors.fill: parent
+                width: columnGrid.width
+                height: 48
+                text: qsTr("Shader - Grayscale")
+
+                onClicked: {
+                    console.log(qsTr("Button Shader Grayscale Pressed"))
+                    myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/grayscale.frag")
+                }
             }
         }
     }

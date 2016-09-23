@@ -8,6 +8,7 @@ Item {
     property size imgSize: img.sourceSize
     property int imageWidth: img.sourceSize.width
     property int imageHeight: img.sourceSize.height
+    property string fragmentShaderSource: " "
 
     function openFile(fileUrl) {
         var request = new XMLHttpRequest();
@@ -52,8 +53,13 @@ Item {
             property variant src: img
             property variant value: slider.value
 
-            vertexShader: openFile("qrc:/s/shaders/edge.vert")
-            fragmentShader: openFile("qrc:/s/shaders/edge.frag")
+            vertexShader: openFile("qrc:/s/shaders/zshader.vert")
+            fragmentShader: fragmentShaderSource //openFile("qrc:/s/shaders/edge.frag")
+
+            onFragmentShaderChanged: {
+                console.log("Fragment Shader Was Changed On: " + fragmentShaderSource)
+                fragmentShader: fragmentShaderSource
+            }
         }
     }
 
@@ -98,3 +104,18 @@ Item {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
