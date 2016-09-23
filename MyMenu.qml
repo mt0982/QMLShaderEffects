@@ -51,160 +51,147 @@ Item {
         id: drawer
         width: parent.width * 0.33
         height: parent.height
-        z: 3
+        margins: 30
 
-        Label {
-            id: header
-            text: "Menu"
-            font.pixelSize: 36
-            anchors.fill: parent
-            horizontalAlignment: Label.AlignHCenter
-        }
+        Flickable {
+            width: drawer.width - 1
+            height: parent.height - height
+            contentHeight: 1000
+            ScrollIndicator.vertical: ScrollIndicator { }
 
-//        Rectangle {
-//            id: icon
-//            width: 32
-//            height: 32
-//            x: parent.width - 32
-//            y: parent.height / 2
-
-//            Image {
-//                id: imgIcon
-//                source: "qrc:/i/icons/left.png"
-//                anchors.fill: parent
-
-//                MouseArea {
-//                    anchors.fill: parent
-//                    onClicked: {
-//                        console.log(qsTr("Hide Menu Button Clicked"))
-//                        drawer.close()
-//                    }
-//                }
-//            }
-//        }
-
-        Button {
-            id: btnOpenFile
-            text: "Open file"
-            width: parent.width
-            height: 48
-            y: 48
-
-            onClicked: {
-                fileDialog.width = Screen.width * 0.6
-                fileDialog.height =  Screen.height * 0.6
-                fileDialog.open()
+            /* Menu Header */
+            Label {
+                id: header
+                text: "Menu"
+                font.pixelSize: 36
+                anchors.fill: parent
+                horizontalAlignment: Label.AlignHCenter
             }
-        }
 
-        Column {
-            id: columnGrid
-            width: parent.width
-            y: btnOpenFile.y + 64
-            x: 0
-            spacing: 1
-
-            /* Grayscale */
+            /* Open File Button */
             Button {
-                id: btnShaderGrayscale
-                width: columnGrid.width
+                id: btnOpenFile
+                text: "Open file"
+                width: parent.width
                 height: 48
-                text: qsTr("Shader - Grayscale")
+                y: 48
 
                 onClicked: {
-                    console.log(qsTr("Button Shader Grayscale Pressed"))
-                    myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/grayscale.frag")
+                    fileDialog.width = Screen.width * 0.6
+                    fileDialog.height =  Screen.height * 0.6
+                    fileDialog.open()
                 }
             }
 
-            /* Brightness */
-            Button {
-                id: btnShaderBrightness
-                width: columnGrid.width
-                height: 48
-                text: qsTr("Shader - Brightness")
+            Column {
+                id: columnGrid
+                width: parent.width
+                y: btnOpenFile.y + 64
+                x: 0
+                spacing: 1
 
-                onClicked: {
-                    console.log(qsTr("Button Shader Brightness Pressed"))
-                    myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/brightness.frag")
+                /* Grayscale */
+                Button {
+                    id: btnShaderGrayscale
+                    width: columnGrid.width
+                    height: 48
+                    text: qsTr("Shader - Grayscale")
+
+                    onClicked: {
+                        console.log(qsTr("Button Shader Grayscale Pressed"))
+                        myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/grayscale.frag")
+                    }
                 }
-            }
 
-            /* Blur */
-            Button {
-                id: btnShaderBlur
-                width: columnGrid.width
-                height: 48
-                text: qsTr("Shader - Blur")
+                /* Brightness */
+                Button {
+                    id: btnShaderBrightness
+                    width: columnGrid.width
+                    height: 48
+                    text: qsTr("Shader - Brightness")
 
-                onClicked: {
-                    console.log(qsTr("Button Shader Blur Pressed"))
-                    myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/blur.frag")
+                    onClicked: {
+                        console.log(qsTr("Button Shader Brightness Pressed"))
+                        myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/brightness.frag")
+                    }
                 }
-            }
 
-            /* Edge */
-            Button {
-                id: btnShaderEdge
-                width: columnGrid.width
-                height: 48
-                text: qsTr("Shader - Edge")
+                /* Blur */
+                Button {
+                    id: btnShaderBlur
+                    width: columnGrid.width
+                    height: 48
+                    text: qsTr("Shader - Blur")
 
-                onClicked: {
-                    console.log(qsTr("Button Shader Edge Pressed"))
-                    myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/edge.frag")
+                    onClicked: {
+                        console.log(qsTr("Button Shader Blur Pressed"))
+                        myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/blur.frag")
+                    }
                 }
-            }
 
-            /* Dilation */
-            Button {
-                id: btnShaderDilation
-                width: columnGrid.width
-                height: 48
-                text: qsTr("Shader - Dilation")
+                /* Edge */
+                Button {
+                    id: btnShaderEdge
+                    width: columnGrid.width
+                    height: 48
+                    text: qsTr("Shader - Edge")
 
-                onClicked: {
-                    console.log(qsTr("Button Shader Dilation Pressed"))
-                    myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/dilation.frag")
+                    onClicked: {
+                        console.log(qsTr("Button Shader Edge Pressed"))
+                        myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/edge.frag")
+                    }
                 }
-            }
 
-            /* Blue Isolate */
-            Button {
-                id: btnShaderBlueIsolate
-                width: columnGrid.width
-                height: 48
-                text: qsTr("Shader - Blue Isolate")
+                /* Dilation */
+                Button {
+                    id: btnShaderDilation
+                    width: columnGrid.width
+                    height: 48
+                    text: qsTr("Shader - Dilation")
 
-                onClicked: {
-                    console.log(qsTr("Button Shader Blue Isolate Pressed"))
-                    myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/blueisolate.frag")
+                    onClicked: {
+                        console.log(qsTr("Button Shader Dilation Pressed"))
+                        myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/dilation.frag")
+                    }
                 }
-            }
 
-            /* Sobel */
-            Button {
-                id: btnShaderSobel
-                width: columnGrid.width
-                height: 48
-                text: qsTr("Shader - Sobel")
+                /* Blue Isolate */
+                Button {
+                    id: btnShaderBlueIsolate
+                    width: columnGrid.width
+                    height: 48
+                    text: qsTr("Shader - Blue Isolate")
 
-                onClicked: {
-                    console.log(qsTr("Button Shader Sobel Pressed"))
-                    myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/sobel.frag")
+                    onClicked: {
+                        console.log(qsTr("Button Shader Blue Isolate Pressed"))
+                        myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/blueisolate.frag")
+                    }
                 }
-            }
 
-            /* Billboard */
-            Button {
-                id: btnShaderBillboard
-                width: columnGrid.width
-                height: 48
-                text: qsTr("Shader - Billboard")
+                /* Sobel */
+                Button {
+                    id: btnShaderSobel
+                    width: columnGrid.width
+                    height: 48
+                    text: qsTr("Shader - Sobel")
 
-                onClicked: {
-                    console.log(qsTr("Button Shader Billboard Pressed"))
-                    myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/billboard.frag")
+                    onClicked: {
+                        console.log(qsTr("Button Shader Sobel Pressed"))
+                        myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/sobel.frag")
+                    }
+                }
+
+                /* Billboard */
+                Button {
+                    id: btnShaderBillboard
+                    width: columnGrid.width
+                    height: 48
+                    text: qsTr("Shader - Billboard")
+
+                    onClicked: {
+                        console.log(qsTr("Button Shader Billboard Pressed"))
+                        myWindow.fragmentShaderSource = openFile("qrc:/s/shaders/billboard.frag")
+                    }
                 }
             }
         }

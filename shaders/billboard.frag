@@ -8,7 +8,6 @@ varying vec2 UV;
 
 const float step_w = 0.0015625;
 const float step_h = 0.0027778;
-//const float grid = 8.0;
 
 void main(void)
 {
