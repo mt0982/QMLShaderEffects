@@ -35,10 +35,9 @@ Item {
 
         Image {
             id: img
-            source: "qrc:/i/lena.jpg"
-            //fillMode: Image.PreserveAspectFit
-            //width: parent.width
-            //anchors.fill: parent
+            source: "qrc:/i/beautiful_forest_2-wallpaper-1920x1080.jpg"
+            fillMode: Image.PreserveAspectFit
+            width: parent.width
 
             ShaderEffect {
                 anchors.fill: parent
@@ -84,9 +83,11 @@ Item {
 
         Image {
             id: img2
-            source: "qrc:/i/lena.jpg"
+            source: "qrc:/i/beautiful_forest_2-wallpaper-1920x1080.jpg"
             x: 0
             y: 0
+            width: img.width
+            height: img.height
         }
     }
 }
