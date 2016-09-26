@@ -5,8 +5,6 @@
         <file>MyWindow.qml</file>
     </qresource>
     <qresource prefix="/i">
-        <file>beautiful_forest_2-wallpaper-1920x1080.jpg</file>
-        <file>lena.jpg</file>
         <file>icons/left.png</file>
         <file>icons/right.png</file>
     </qresource>
